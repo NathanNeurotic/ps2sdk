@@ -187,7 +187,7 @@ int CreateSave(void)
 	// and icon filenames. Please note that the save name is sjis encoded.
 
 	memset(&icon_sys, 0, sizeof(mcIcon));
-	strcpy(icon_sys.head, "PS2D");
+	strcpy((char*)icon_sys.head, "PS2D");
 	strcpy_sjis((short *)&icon_sys.title, "Memcard Example\nPS2Dev r0x0rs");
 	icon_sys.nlOffset = 16;
 	icon_sys.trans = 0x60;
@@ -195,9 +195,9 @@ int CreateSave(void)
 	memcpy(icon_sys.lightDir, lightdir, sizeof(lightdir));
 	memcpy(icon_sys.lightCol, lightcol, sizeof(lightcol));
 	memcpy(icon_sys.lightAmbient, ambient, sizeof(ambient));
-	strcpy(icon_sys.view, "ps2dev.icn"); // these filenames are relative to the directory
-	strcpy(icon_sys.copy, "ps2dev.icn"); // in which icon.sys resides.
-	strcpy(icon_sys.del, "ps2dev.icn");
+	strcpy((char*)icon_sys.view, "ps2dev.icn"); // these filenames are relative to the directory
+	strcpy((char*)icon_sys.copy, "ps2dev.icn"); // in which icon.sys resides.
+	strcpy((char*)icon_sys.del, "ps2dev.icn");
 
 	// Write icon.sys to the memory card (Note that this filename is fixed)
 	mc_fd = open("mc0:PS2DEV/icon.sys",O_WRONLY | O_CREAT);
