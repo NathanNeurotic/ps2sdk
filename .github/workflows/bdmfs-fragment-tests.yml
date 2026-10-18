@@ -1,0 +1,12 @@
+name: BDM fragment walker safety
+on:
+  push:
+    paths: ['iop/fs/bdmfs_fatfs/**', '.github/workflows/bdmfs-fragment-tests.yml']
+  pull_request:
+    paths: ['iop/fs/bdmfs_fatfs/**', '.github/workflows/bdmfs-fragment-tests.yml']
+jobs:
+  fault-injection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: python3 iop/fs/bdmfs_fatfs/tests/test_frag_list.py
