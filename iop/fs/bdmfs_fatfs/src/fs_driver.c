@@ -735,7 +735,7 @@ static int get_frag_list(FIL *file, void *rdata, unsigned int rdatalen)
         case FS_FAT16: eof = 0xFFF8; break;
         case FS_FAT32: eof = 0x0FFFFFF8; break;
 #if FF_FS_EXFAT
-        case FS_EXFAT: eof = 0x7FFFFFF8; break;
+        case FS_EXFAT: eof = 0x7FFFFFFF; break;
 #endif
         default: return -EINVAL;
     }
